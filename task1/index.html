@@ -8,7 +8,117 @@
     <title>Task 1. (ToDoList)</title>
 </head>
 <body>
-    <script src="js/index.js"></script>
+    <header>Task 1 (ToDo List)</header>
+    <main>
+        <table class="table todolist-table">
+            <colgroup>
+                <col class="table__category-icon">
+                <col class="table__name">
+                <col class="table__created">
+                <col class="table__category">
+                <col class="table__content">
+                <col class="table__dates">
+                <col class="table__active-icon">
+                <col class="table__active-icon">
+                <col class="table__active-icon">
+            </colgroup>
+            <thead>
+                <tr class="table__head">
+                    <th>&nbsp;</th>
+                    <th>Name</th>
+                    <th>Created</th>
+                    <th>Category</th>
+                    <th>Content</th>
+                    <th>Dates</th>
+                    <th class="table__header-icon">&nbsp;</th>
+                    <th class="table__header-icon archive" id="table-switcher">
+                        <svg class="icon">
+                            <use xlink:href="./img/sprite.svg#archive"></use>
+                        </svg>
+                    </th>
+                    <th class="table__header-icon delete">
+                        <svg class="icon">
+                            <use xlink:href="./img/sprite.svg#delete"></use>
+                        </svg>
+                    </th>
+                </tr>
+            </thead>
+            <tbody id="list-table">
+                <tr class="table__row">
+                    <td class="table__icon-round">
+                        <svg class="icon">
+                            <use xlink:href="./img/sprite.svg#shopping_cart"></use>
+                        </svg>
+                    </td>
+                    <td>Shoppin</td>
+                    <td>21/25/2302</td>
+                    <td>Shopping list</td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                        <svg class="icon">
+                            <use xlink:href="./img/sprite.svg#edit"></use>
+                        </svg>
+                    </td>
+                    <td>
+                        <svg class="icon">
+                            <use xlink:href="./img/sprite.svg#archive"></use>
+                        </svg>
+                    </td>
+                    <td>
+                        <svg class="icon">
+                            <use xlink:href="./img/sprite.svg#delete"></use>
+                        </svg>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <button class="create__button">Create note</button>
+
+        <table class="table">
+            <colgroup>
+                <col class="table__category-icon">
+                <col class="table__category">
+                <col class="table__active">
+                <col class="table__archived">
+            </colgroup>
+            <thead>
+                <tr class="table__head">
+                    <th>&nbsp;</th>
+                    <th>Note Category</th>
+                    <th>Active</th>
+                    <th>Archived</th>
+                </tr>
+            </thead>
+            <tbody id="stats-table">
+                <tr class="table__row">
+                    <td class="table__icon-round">
+                        <svg class="icon">
+                            <use xlink:href="./img/sprite.svg#psychology"></use>
+                        </svg>
+                    </td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+
+    <div class="modal-div" hidden>
+        <form action="">
+            <input type="text" name="name" value="" placeholder="Name" required>
+            <select name="categories">
+                <option value="1">111</option>
+                <option value="2">222</option>
+            </select>
+            <textarea name="content" placeholder="Content"></textarea>
+            <input class="cancel" type="button" value="Cancel">
+            <input id="submit-button" type="submit" value="Submit" > 
+        </form>
+    </div>
     
+    <script src="js/index.js" defer></script>
 </body>
 </html>
