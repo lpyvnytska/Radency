@@ -1,4 +1,4 @@
-import * as icons from './svg_icons.js';
+import * as icons from './svg_icons.js'
 
 export let categories = {
     "Idea" : icons.IDEA_ICON,
