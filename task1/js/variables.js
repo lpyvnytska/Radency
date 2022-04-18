@@ -1,4 +1,4 @@
-import * as icons from './svg_icons';
+import * as icons from './svg_icons.js';
 
 export let categories = {
     "Idea" : icons.IDEA_ICON,
@@ -11,27 +11,27 @@ export let todoList = [
     {
         id: 1,
         name: 'Shopping list',
-        created: new Date('20/04/2021'),
+        created: new Date('04/20/2021'),
         category: "Idea",
         content: 'Tomatoes, bread',
-        archive: false
+        active: true
     },
     {
         id: 2,
         name: 'The theory of evolution',
-        created: new Date('27/04/2021'),
+        created: new Date('04/27/2021'),
         category: "Quote",
         content: 'The evolution is something',
-        archive: false
+        active: true
     },
     {
         id: 3,
         name: "New Feature",
-        created: new Date('27/04/2021'),
+        created: new Date('04/27/2021'),
         category: "Idea",
         content: "Implement some feature in this app",
         dates: "",
-        archived: false
+        active: false
     },
     {
         id: 4,
@@ -40,7 +40,7 @@ export let todoList = [
         category: "Task",
         content: "I’m gonna have a dentist appointment on the 3/5/2021, I moved it from 5/5/2021",
         dates: "3/5/2021, 5/5/2021",
-        archived: false
+        active: false
     },
     {
         id: 5,
@@ -49,7 +49,7 @@ export let todoList = [
         category: "Quote",
         content: "Power doesn't come with bla bla bla",
         dates: "",
-        archived: true
+        active: true
     },
     {
         id: 6,
@@ -58,6 +58,6 @@ export let todoList = [
         category: "Task",
         content: "The Lean Statrup",
         dates: "",
-        archived: true
+        active: true
     },
 ]
