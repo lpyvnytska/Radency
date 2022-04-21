@@ -1,19 +1,29 @@
 import { todoList, categories } from "./variables.js";
 import { buildForm } from "./form.js";
+import { showNotification } from "./notification.js";
 
 let showActiveList = true,
   listTable = document.getElementById("list-table"),
   statsTable = document.getElementById("stats-table");
 
-const buildTables = () => {
-  let list = todoList.filter((note) => note.active === showActiveList);
-  buildToDoTable(list);
-  buildStaticTable(todoList);
-};
 
 const switchTables = () => {
-  showActiveList = !showActiveList;
-  buildTables();
+  try {
+    showActiveList = !showActiveList;
+    buildTables();
+  } catch (e) {
+    showNotification('Error during switch active/archive tables', 'error')
+  }
+};
+
+const buildTables = () => {
+    try {
+        let list = todoList.filter((note) => note.active === showActiveList);
+        buildToDoTable(list);
+        buildStaticTable(todoList);
+    } catch (e) {
+        showNotification('Error during build tables', 'error')
+    }
 };
 
 const buildToDoTable = (list) => {
@@ -35,15 +45,25 @@ const buildStaticTable = (fullList) => {
   }
   statsTable.innerHTML = Object.keys(staticList)
     .map((note) => addStaticRow(note, staticList[note]))
-    .reduce((a, b) => a + b, "");
+    .join('')
 };
 
 const addNote = () => {
-  buildForm(-1, updateNote);
+  try {
+    buildForm(-1, updateNote);
+    showNotification('Note added', 'info')
+  } catch (e) {
+    showNotification('Error during adding note', 'error')
+  }
 };
 
 const editNote = (id) => {
-  buildForm(todoList[todoList.findIndex((note) => note.id === id)], updateNote);
+  try {
+    buildForm(todoList[todoList.findIndex((note) => note.id === id)], updateNote);
+    showNotification('Note changed', 'info')
+  } catch (e) {
+    showNotification('Error during edit note', 'error')
+  }
 };
 
 const updateNote = (editabledNote) => {
@@ -63,9 +83,14 @@ const changeArchiveStateNote = (id) => {
 };
 
 const deleteNote = (id) => {
-  let idx = todoList.findIndex((note) => note.id === id);
-  todoList.splice(idx, 1);
-  buildTables();
+  try {
+    let idx = todoList.findIndex((note) => note.id === id);
+    todoList.splice(idx, 1);
+    buildTables();
+    showNotification('Note deleted', 'info')
+  } catch (e) {
+    showNotification('Error during delete note', 'error')
+  }
 };
 
 const addTableRow = (note) => {

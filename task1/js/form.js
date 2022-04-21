@@ -2,7 +2,6 @@ import { categories } from './variables.js'
 import { parseDatesFromText } from './regexpDate.js'
 
 function buildForm(note = {}, updateNote) {
-    console.log(note);
     let form = document.createElement('form');
     form.innerHTML = `
         <input type="text" name="name" value="${note.name || ''}" placeholder="Name" required>
