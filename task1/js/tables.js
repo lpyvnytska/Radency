@@ -51,7 +51,6 @@ const buildStaticTable = (fullList) => {
 const addNote = () => {
   try {
     buildForm(-1, updateNote);
-    showNotification('Note added', 'info')
   } catch (e) {
     showNotification('Error during adding note', 'error')
   }
@@ -60,7 +59,6 @@ const addNote = () => {
 const editNote = (id) => {
   try {
     buildForm(todoList[todoList.findIndex((note) => note.id === id)], updateNote);
-    showNotification('Note changed', 'info')
   } catch (e) {
     showNotification('Error during edit note', 'error')
   }
@@ -68,12 +66,16 @@ const editNote = (id) => {
 
 const updateNote = (editabledNote) => {
   let idx = todoList.findIndex((note) => note.id === editabledNote.id);
+  let textNotify = ''
   if (~idx) {
     todoList[idx] = { ...todoList[idx], ...editabledNote };
+    textNotify = 'Note changed'
   } else {
     todoList.push(editabledNote);
+    textNotify = 'Note added'
   }
   buildTables();
+  showNotification(textNotify, 'info')
 };
 
 const changeArchiveStateNote = (id) => {
