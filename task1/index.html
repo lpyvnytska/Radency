@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,8 +8,72 @@
     <link rel="stylesheet" href="css/style.css">
     <title>Task 1. (ToDoList)</title>
 </head>
+
 <body>
-    <script src="js/index.js"></script>
-    
+    <header>Task 1 (ToDo List)</header>
+    <main>
+        <table class="table todolist-table">
+            <colgroup>
+                <col class="table__category-icon">
+                <col class="table__name">
+                <col class="table__created">
+                <col class="table__category">
+                <col class="table__content">
+                <col class="table__dates">
+                <col class="table__active-icon">
+                <col class="table__active-icon">
+                <col class="table__active-icon">
+            </colgroup>
+            <thead>
+                <tr class="table__head">
+                    <th>&nbsp;</th>
+                    <th>Name</th>
+                    <th>Created</th>
+                    <th>Category</th>
+                    <th>Content</th>
+                    <th>Dates</th>
+                    <th class="table__header-icon">&nbsp;</th>
+                    <th class="table__header-icon archive" id="table-switcher">
+                        <svg class="icon">
+                            <use xlink:href="./img/sprite.svg#archive"></use>
+                        </svg>
+                    </th>
+                    <th class="table__header-icon delete">
+                        <svg class="icon">
+                            <use xlink:href="./img/sprite.svg#delete"></use>
+                        </svg>
+                    </th>
+                </tr>
+            </thead>
+            <tbody id="list-table">
+                
+            </tbody>
+        </table>
+
+        <button class="create__button" id="create-note">Create note</button>
+
+        <table class="table">
+            <colgroup>
+                <col class="table__category-icon">
+                <col class="table__category">
+                <col class="table__active">
+                <col class="table__archived">
+            </colgroup>
+            <thead>
+                <tr class="table__head">
+                    <th>&nbsp;</th>
+                    <th>Note Category</th>
+                    <th>Active</th>
+                    <th>Archived</th>
+                </tr>
+            </thead>
+            <tbody id="stats-table">
+               
+            </tbody>
+        </table>
+    </main>
+
+    <script type="module" src="js/index.js" defer></script>
 </body>
+
 </html>
